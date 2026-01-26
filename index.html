@@ -4,844 +4,600 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT. Hikma Langgeng Abadi - Distributor & Konstruksi</title>
+    <meta name="description"
+        content="PT. Hikma Langgeng Abadi - Solusi konstruksi sipil, aplikator bersertifikat SIKA, dan distributor material industri premium.">
+    <title>PT. Hikma Langgeng Abadi | Modern Construction & Distribution</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
         rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon.png">
     <style>
         :root {
-            --primary-navy: #001f3f;
-            /* Warna Navy Khas Konstruksi */
-            --secondary-navy: #003366;
-            --accent-color: #FF851B;
-            /* Oranye untuk kontras/safety color */
-            --text-light: #f8f9fa;
-            --text-dark: #333;
+            --primary: #00f2ff;
+            --accent: #7000ff;
+            --dark-bg: #030712;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --whatsapp: #25D366;
+            --danger-red: #ff4d4d;
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            color: var(--text-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--dark-bg);
+            color: #e2e8f0;
             overflow-x: hidden;
+            background-image:
+                linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Montserrat', sans-serif;
+        /* --- TOKOPEDIA BUTTON (DI LUAR MEDIA QUERY AGAR MUNCUL DI DESKTOP & MOBILE) --- */
+        .btn-tokped {
+            background: #42b549 !important;
+            color: white !important;
+            border-radius: 12px;
+            padding: 12px 25px;
             font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(66, 181, 73, 0.3);
         }
 
-        /* --- Navigation --- */
+        .btn-tokped:hover {
+            background: #38a040 !important;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(66, 181, 73, 0.5);
+        }
+
+        /* --- BACKGROUND & NAVIGATION --- */
+        .glow-orb {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 242, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(80px);
+            animation: float 20s infinite alternate;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(-10%, -10%);
+            }
+
+            100% {
+                transform: translate(20%, 30%);
+            }
+        }
+
         .navbar {
-            background-color: var(--primary-navy);
-            padding: 15px 0;
-            transition: all 0.3s;
+            padding: 20px 0;
+            transition: 0.4s;
+        }
+
+        .navbar.scrolled {
+            background: rgba(3, 7, 18, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 12px 0;
         }
 
         .navbar-brand {
-            color: var(--text-light) !important;
-            font-weight: 700;
-            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
-        .nav-link {
-            color: var(--text-light) !important;
-            margin-left: 15px;
-            font-weight: 500;
-            position: relative;
+        .navbar-brand:hover img {
+            transform: rotate(5deg) scale(1.1);
+            /* Efek animasi kecil saat kursor di atas logo */
         }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--accent-color);
-            transition: width 0.3s;
+        /* --- GLASS CARD & PORTFOLIO --- */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            transition: all 0.4s ease;
         }
 
-        .nav-link:hover::after {
-            width: 100%;
+        .glass-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        /* --- Hero Section --- */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.7)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding-top: 60px;
-        }
-
-        .btn-custom {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 5px;
-            font-weight: 600;
-            border: none;
-            transition: transform 0.3s;
-        }
-
-        .btn-custom:hover {
-            transform: translateY(-3px);
-            background-color: #e67e22;
-            color: white;
-        }
-
-        /* --- Section Styling --- */
-        .section-padding {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            color: var(--primary-navy);
-            margin-bottom: 50px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background: var(--accent-color);
-            margin: 10px auto 0;
-        }
-
-        /* --- Services Card (3D Tilt Effect) --- */
-        .service-card {
-            border: none;
-            border-bottom: 5px solid var(--primary-navy);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            height: 100%;
-            background: white;
-            transform-style: preserve-3d;
-            /* Untuk efek 3D */
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--primary-navy);
-            margin-bottom: 20px;
-        }
-
-        /* --- Portfolio --- */
-        .portfolio-item {
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .portfolio-img {
-            width: 100%;
-            height: 250px;
+        .glass-card img {
+            transition: 0.5s;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            height: 350px;
+            width: 100%;
         }
 
         .portfolio-overlay {
             position: absolute;
-            top: 0;
+            bottom: -100%;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 31, 63, 0.9);
-            color: white;
+            background: linear-gradient(to top, rgba(3, 7, 18, 0.95), transparent);
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            align-items: flex-end;
+            transition: 0.5s ease-in-out;
+        }
+
+        .glass-card:hover .portfolio-overlay {
+            bottom: 0;
+        }
+
+        /* --- COMPONENTS --- */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
             align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            text-align: center;
-            padding: 20px;
+            padding-top: 80px;
         }
 
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            background: linear-gradient(to bottom right, #fff 50%, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .portfolio-item:hover .portfolio-img {
-            transform: scale(1.1);
+        .btn-neon {
+            background: var(--primary);
+            color: var(--dark-bg);
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            padding: 15px 30px;
+            text-transform: uppercase;
         }
 
-        .filter-btn {
-            background: transparent;
-            border: 2px solid var(--primary-navy);
-            color: var(--primary-navy);
-            margin: 0 5px;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-weight: 600;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--primary-navy);
+        .btn-float-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--whatsapp);
             color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            z-index: 1000;
         }
 
-        /* --- Contact --- */
-        .contact-info-box {
-            background: var(--primary-navy);
-            color: white;
-            padding: 30px;
-            border-radius: 10px;
+        .map-container {
+            border-radius: 24px;
+            overflow: hidden;
+            height: 100%;
+            min-height: 400px;
+            border: 1px solid var(--glass-border);
         }
 
-        /* --- Footer --- */
-        footer {
-            background-color: #0a0a0a;
-            color: #ccc;
-            padding: 50px 0 20px;
+        /* ============================================================
+       --- SEMUA OPTIMASI MOBILE ---
+       ============================================================ */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 0 !important;
+            }
+
+            .navbar-brand {
+                font-size: 1rem !important;
+            }
+
+            .navbar-collapse {
+                background: rgba(3, 7, 18, 0.98);
+                margin-top: 15px;
+                border-radius: 20px;
+                padding: 20px;
+                border: 1px solid var(--glass-border);
+            }
+
+            .hero-section {
+                text-align: center;
+            }
+
+            .btn-group-hero {
+                flex-direction: column;
+                display: flex;
+                gap: 10px;
+            }
+
+            .btn-tokped {
+                width: 100%;
+                justify-content: center;
+            }
+
+            /* Tombol Tokped Full Width di HP */
+
+            .glass-card img {
+                height: 180px !important;
+            }
+
+            .portfolio-overlay {
+                bottom: 0 !important;
+                background: linear-gradient(to top, rgba(3, 7, 18, 0.95) 40%, transparent 100%) !important;
+            }
+
+            .portfolio-overlay h5 {
+                font-size: 0.85rem !important;
+            }
+
+            .portfolio-overlay p.small {
+                font-size: 0.65rem !important;
+                -webkit-line-clamp: 2;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .map-container {
+                min-height: 250px !important;
+                height: 250px !important;
+            }
+
+            footer {
+                padding-bottom: 100px !important;
+                text-align: center;
+            }
+
+            .btn-float-wa {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 24px;
+            }
         }
 
-        footer h5 {
-            color: white;
-            margin-bottom: 20px;
+        #about {
+            scroll-margin-top: 100px;
         }
 
-        footer a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        footer a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Pastikan menggunakan ::before untuk menimpa konten Font Awesome */
-        .fa-tokopedia::before {
-            content: "" !important;
-            /* Menghapus ikon bawaan/pencarian */
-            display: inline-block;
-            width: 1.25em;
-            /* Ukuran proporsional dengan teks */
-            height: 1.25em;
-            background-image: url('https://assets.tokopedia.net/assets-tokopedia-lite/v2/zeus/kratos/af2f34c3.svg');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            vertical-align: middle;
-            margin-top: -3px;
-            /* Penyesuaian posisi agar sejajar teks */
-        }
-
-        /* Tambahkan ini di dalam tag <style> */
-        .portfolio-item {
-            cursor: pointer;
-            /* Menunjukkan bahwa gambar bisa diklik */
+        /* Menghilangkan sisa-sisa navigasi slider atau elemen yang tidak diinginkan */
+        .carousel-control-prev,
+        .carousel-control-next,
+        .nav-link::before {
+            display: none !important;
         }
     </style>
 </head>
 
 <body>
+    <div class="glow-orb" style="top: 10%; left: -10%;"></div>
+    <div class="glow-orb"
+        style="bottom: 10%; right: -10%; background: radial-gradient(circle, rgba(112, 0, 255, 0.05) 0%, transparent 70%);">
+    </div>
 
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <a href="https://api.whatsapp.com/send?phone=6281234567890" class="btn-float-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-building me-2"></i>PT. HIKMA LANGGENG ABADI</a>
-            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/favicon.png" alt="Logo HLA" width="30" height="30"
+                    class="d-inline-block align-top me-2">
+                PT. HIKMA<span class="text-info">LANGGENG</span><span style="color: var(--danger-red);">ABADI</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fas fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">Tentang Kami</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Layanan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portofolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#about">Company</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#gallery">Portfolio</a></li>
+                    <li class="nav-item ms-lg-4"><a class="btn btn-outline-info rounded-pill px-4"
+                            href="#contact">Contact Us</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="container" data-aos="fade-up" data-aos-duration="1000">
-            <h1 class="display-3 fw-bold mb-4">Membangun Masa Depan dengan Kualitas Terbaik</h1>
-            <p class="lead mb-5">Mitra terpercaya Anda dalam Distribusi Bahan Bangunan & Jasa Konstruksi Profesional.
-            </p>
-            <a href="#services" class="btn btn-custom btn-lg">Lihat Layanan Kami</a>
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7" data-aos="fade-right">
+                    <div
+                        class="badge bg-info bg-opacity-10 text-info px-3 py-2 rounded-pill mb-4 border border-info border-opacity-25">
+                        <i class="fas fa-hard-hat me-2"></i> LEADING CONSTRUCTION & SUPPLY
+                    </div>
+                    <h1 class="hero-title mb-4">Solusi Konstruksi <span class="text-info">Tangguh</span> & <span
+                            style="color: var(--danger-red);">Efisien</span></h1>
+                    <p class="lead text-white-50 mb-5" style="max-width: 600px;">Menghubungkan rantai pasok material
+                        industri premium dengan keahlian konstruksi sipil. Solusi satu pintu untuk infrastruktur yang
+                        lebih kuat, lebih cepat, dan lebih efisien.</p>
+                    <div class="d-flex flex-wrap gap-3 btn-group-hero">
+                        <a href="https://tokopedia.com" target="_blank" class="btn-tokped">
+                            <i class="fas fa-store"></i> Tokopedia Shop
+                        </a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg px-4 rounded-3">
+                            Konsultasi Teknis
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5" data-aos="zoom-in">
+                    <div class="glass-card p-4 text-center">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800"
+                            class="img-fluid rounded-4 mb-4" alt="Construction">
+                        <div class="d-flex justify-content-around">
+                            <div>
+                                <h3 class="fw-bold text-info mb-0">12+</h3><small class="text-white-50">Tahun
+                                    Pengalaman</small>
+                            </div>
+                            <div class="border-start border-secondary opacity-25"></div>
+                            <div>
+                                <h3 class="fw-bold text-info mb-0">500+</h3><small class="text-white-50">Proyek
+                                    Selesai</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="about" class="section-padding">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-title">Tentang Kami</h2>
-            </div>
-            <div class="row align-items-center mt-5">
-                <div class="col-md-6 mb-4" data-aos="fade-right">
-
-                    <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Tim PT Hikma" class="img-fluid rounded shadow-lg">
+    <section id="about" class="py-5">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h6 class="text-info text-uppercase fw-bold">Tentang Kami</h6>
+                    <h2 class="display-5 fw-bold mb-4">Mitra Strategis Infrastruktur Anda</h2>
+                    <p class="text-white-50">PT. Hikma Langgeng Abadi hadir sebagai solusi terintegrasi antara
+                        distribusi material berkualitas tinggi dan jasa konstruksi profesional. kami fokus pada
+                        ketahanan dan efisiensi setiap proyek sipil maupun industri.</p>
+                    <div class="row g-3 mt-2">
+                        <div class="col-6">
+                            <div class="p-3 border border-white border-opacity-10 rounded-3">
+                                <h4 class="text-info fw-bold">Visi</h4>
+                                <p class="small text-white-50 mb-0">Menjadi distributor & aplikator konstruksi
+                                    terpercaya di Indonesia.</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-3 border border-white border-opacity-10 rounded-3">
+                                <h4 class="text-info fw-bold">Misi</h4>
+                                <p class="small text-white-50 mb-0">Memberikan material premium dan pengerjaan presisi
+                                    standar global.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6" data-aos="fade-left">
-                    <h3 class="mb-3 text-navy">PT. Hikma Langgeng Abadi</h3>
-                    <p class="text-muted">
-                        PT. Hikma Langgeng Abadi adalah perusahaan terpercaya di bidang distributor dan konstruksi yang
-                        berdiri sejak tahun 2025. berkomitmen penuh pada inovasi teknologi konstruksi dan praktik
-                        keberlanjutan lingkungan.
-                    </p>
-                    <ul class="list-unstyled mt-4">
-                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Visi:</strong>
-                            Menjadi perusahaan konstruksi dan distributor terdepan di Indonesia.</li>
-                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> <strong>Misi:</strong>
-                            Memberikan material berkualitas tinggi dan hasil konstruksi yang presisi serta tepat waktu.
-                        </li>
-                        <li><i class="fas fa-check-circle text-primary me-2"></i> <strong>Nilai:</strong> Integritas,
-                            Kualitas, dan Keamanan.</li>
-                    </ul>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="glass-card p-2">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800"
+                            class="img-fluid rounded-4" style="height: 400px;" alt="Workplace">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="section-padding bg-light">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Layanan Kami</h2>
-                <p>Solusi lengkap mulai dari suplai material hingga pelaksanaan proyek.</p>
+    <section id="services" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-info text-uppercase fw-bold tracking-widest">Our Expertise</h6>
+                <h2 class="display-5 fw-bold">Layanan Unggulan</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6" data-aos="fade-up">
+                    <div class="glass-card p-5 h-100">
+                        <div class="icon-box"><i class="fas fa-building"></i></div>
+                        <h4 class="fw-bold mb-3">Certified Applicator & Contractor</h4>
+                        <p class="text-white-50">Kami memastikan material premium terpasang dengan standar teknis
+                            pabrikan untuk menjamin ketahanan jangka panjang.</p>
+                        <ul class="list-unstyled mt-4 text-white-50">
+                            <li><i class="fas fa-check-circle text-info me-2"></i> Konstruksi Gudang & Pabrik</li>
+                            <li><i class="fas fa-check-circle text-info me-2"></i> Spesialis Waterproofing & Epoxy
+                                (SIKA)</li>
+                            <li><i class="fas fa-check-circle text-info me-2"></i> Pemasangan Facade & Dekoratif (SHERA)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card p-5 h-100">
+                        <div class="icon-box"><i class="fas fa-boxes-packing"></i></div>
+                        <h4 class="fw-bold mb-3">Authorized Industrial Supply</h4>
+                        <p class="text-white-50">Distributor resmi untuk brand konstruksi global, menyediakan stok siap
+                            kirim untuk kebutuhan proyek besar maupun retail.</p>
+                        <ul class="list-unstyled mt-4 text-white-50">
+                            <li><i class="fas fa-check-circle text-info me-2"></i> Stok Utama SIKA, SHERA, & MATTAKA
+                            </li>
+                            <li><i class="fas fa-check-circle text-info me-2"></i> Sistem Ventilasi Industri (TURBINKU)
+                            </li>
+                            <li><i class="fas fa-check-circle text-info me-2"></i> Konsultasi Produk & Efisiensi
+                                Material</li>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-info text-uppercase fw-bold tracking-widest">Our Products & Projects</h6>
+                <h2 class="display-5 fw-bold">Portfolio Produk</h2>
+                <div class="mx-auto mt-3"
+                    style="width:80px; height:4px; background:var(--primary); border-radius:10px;"></div>
             </div>
 
             <div class="row g-4">
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="card service-card p-4 text-center" data-tilt>
-                        <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
-                        <h4>Jasa Konstruksi</h4>
-                        <p class="text-muted">Layanan pembangunan gedung, rumah tinggal, hingga renovasi kantor dengan
-                            tim ahli bersertifikat.</p>
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card h-100 overflow-hidden position-relative">
+                        <img src="assets/img/sika.webp" loading="lazy" alt="Sika Products">
+                        <div class="portfolio-overlay">
+                            <div class="p-4 w-100">
+                                <span class="badge bg-info mb-2">Chemical Construction</span>
+                                <h5 class="fw-bold text-white">SIKA</h5>
+                                <p class="small text-white-50">Solusi perekat & waterproofing kualitas dunia.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="card service-card p-4 text-center" data-tilt>
-                        <div class="service-icon"><i class="fas fa-truck-loading"></i></div>
-                        <h4>Distributor Material</h4>
-                        <p class="text-muted">Penyuplai semen, baja, bata ringan, dan material konstruksi lainnya dengan
-                            harga kompetitif.</p>
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card h-100 overflow-hidden position-relative">
+                        <img src="assets/img/shera.jpg" loading="lazy" alt="Shera Products">
+                        <div class="portfolio-overlay">
+                            <div class="p-4 w-100">
+                                <span class="badge bg-info mb-2">Wood Substitute</span>
+                                <h5 class="fw-bold text-white">SHERA PLANK</h5>
+                                <p class="small text-white-50">Material dekoratif fiber semen motif kayu alami.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="card service-card p-4 text-center" data-tilt>
-                        <div class="service-icon"><i class="fas fa-tractor"></i></div>
-                        <h4>Sewa Alat Berat</h4>
-                        <p class="text-muted">Penyewaan excavator, crane, dan alat berat lainnya untuk mendukung
-                            efisiensi proyek Anda.</p>
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card h-100 overflow-hidden position-relative">
+                        <img src="assets/img/mattaka.jpeg" loading="lazy" alt="Mattaka Products">
+                        <div class="portfolio-overlay">
+                            <div class="p-4 w-100">
+                                <span class="badge bg-info mb-2">Roofing System</span>
+                                <h5 class="fw-bold text-white">MATTAKA</h5>
+                                <p class="small text-white-50">Sistem atap modern dengan daya tahan ekstrem.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="glass-card h-100 overflow-hidden position-relative">
+                        <img src="assets/img/turbinku.jpg" loading="lazy" alt="Turbinku">
+                        <div class="portfolio-overlay">
+                            <div class="p-4 w-100">
+                                <span class="badge bg-info mb-2">Air Ventilation</span>
+                                <h5 class="fw-bold text-white">TURBINKU</h5>
+                                <p class="small text-white-50">Turbin ventilator otomatis untuk sirkulasi industri.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="portfolio" class="section-padding">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Portofolio Proyek</h2>
-                <p class="text-muted">Rekam jejak kami dalam memberikan kualitas terbaik.</p>
-                <div class="mt-4">
-                    <button class="btn filter-btn active" onclick="filterPortfolio('all')">Semua</button>
-                    <button class="btn filter-btn" onclick="filterPortfolio('konstruksi')">Konstruksi</button>
-                    <button class="btn filter-btn" onclick="filterPortfolio('distributor')">Distributor</button>
-                </div>
-            </div>
-
-            <div class="row g-4" id="portfolio-grid">
-
-                <div class="col-md-4 portfolio-item-wrapper konstruksi" data-aos="flip-left">
-                    <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#projectModal1">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            class="portfolio-img" alt="Gedung Melvin">
-                        <div class="portfolio-overlay">
-                            <h5>Gedung Perkantoran Melvin</h5>
-                            <p class="small">Konstruksi High-Rise (Klik untuk detail)</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 portfolio-item-wrapper distributor" data-aos="flip-left" data-aos-delay="100">
-                    <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#projectModal2">
-                        <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            class="portfolio-img" alt="Gudang Ganja">
-                        <div class="portfolio-overlay">
-                            <h5>Suplai Proyek Ganja Nusantara</h5>
-                            <p class="small">Distribusi Baja & Beton (Klik untuk detail)</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 portfolio-item-wrapper konstruksi" data-aos="flip-left" data-aos-delay="200">
-                    <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#projectModal3">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            class="portfolio-img" alt="Villa Cikarang">
-                        <div class="portfolio-overlay">
-                            <h5>Renovasi Villa Cikarang</h5>
-                            <p class="small">Residential & Interior (Klik untuk detail)</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 portfolio-item-wrapper distributor" data-aos="flip-left">
-                    <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#projectModal4">
-                        <img src="https://images.unsplash.com/photo-1518709414768-a88981a4515d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            class="portfolio-img" alt="Pipa & Material">
-                        <div class="portfolio-overlay">
-                            <h5>Suplai Pipa Migas Pertiwi</h5>
-                            <p class="small">Distribusi Material Industri (Klik untuk detail)</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 portfolio-item-wrapper konstruksi" data-aos="flip-left" data-aos-delay="100">
-                    <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#projectModal5">
-                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            class="portfolio-img" alt="Cluster Perumahan">
-                        <div class="portfolio-overlay">
-                            <h5>Cluster Green Harmony</h5>
-                            <p class="small">Pembangunan 50 Unit Rumah (Klik untuk detail)</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 portfolio-item-wrapper distributor" data-aos="flip-left" data-aos-delay="200">
-                    <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#projectModal6">
-                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                            class="portfolio-img" alt="Alat Berat">
-                        <div class="portfolio-overlay">
-                            <h5>Pengadaan Alat Berat Tol Japek</h5>
-                            <p class="small">Sewa & Suplai Excavator (Klik untuk detail)</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section-padding bg-light">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Hubungi Kami</h2>
-                <p>Konsultasikan kebutuhan proyek Anda bersama kami.</p>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <form onsubmit="kirimKeWA(event)" class="p-4 bg-white shadow-sm rounded">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="name" placeholder="Nama Anda" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="email@contoh.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Pesan / Kebutuhan</label>
-                            <textarea class="form-control" id="message" rows="5" placeholder="Ceritakan proyek Anda..."
-                                required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-custom w-100"><i class="fab fa-whatsapp me-2"></i>Kirim via
-                            WhatsApp</button>
-                    </form>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="contact-info-box mb-4">
-                        <h4><i class="fas fa-map-marker-alt me-2"></i> Kantor Pusat</h4>
-                        <p>Jl. Jendral Sudirman No. 45, Bekasi Barat, Jawa Barat, Indonesia.</p>
-                        <p><i class="fas fa-phone me-2"></i> +62 21 8899 7766</p>
-                        <p><i class="fas fa-envelope me-2"></i> info@hikmalanggeng.co.id</p>
-                    </div>
-                    <div class="map-container rounded overflow-hidden shadow-sm">
+    <section id="contact" class="py-5">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="map-container shadow-2xl">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126907.03257321689!2d106.91500604107567!3d-6.284799000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698d8546ad633d%3A0x79e8de8965402078!2sKota%20Bks%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1689584000000!5m2!1sid!2sid"
-                            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6499524196615!2d106.9986773!3d-6.177591299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698b0017266bcb%3A0x5055147a77918249!2sPT.%20Hikma%20Langgeng%20Abadi%20(Distributor%20Sika%2C%20Shera%2C%20Aplus%20dan%20Turbinku)!5e0!3m2!1sen!2sid!4v1769139597794!5m2!1sen!2sid"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="glass-card p-5">
+                        <h3 class="fw-bold mb-4">Hubungi Kami</h3>
+                        <form id="consultForm">
+                            <div class="mb-3">
+                                <label class="small text-white-50 mb-2">Nama Lengkap</label>
+                                <input type="text" id="name" class="form-control form-control-glass"
+                                    placeholder="Contoh: Budi Santoso" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="small text-white-50 mb-2">Perusahaan/Instansi</label>
+                                <input type="text" id="company" class="form-control form-control-glass"
+                                    placeholder="Nama PT atau CV">
+                            </div>
+                            <div class="mb-4">
+                                <label class="small text-white-50 mb-2">Kebutuhan Proyek</label>
+                                <textarea id="message" class="form-control form-control-glass" rows="4"
+                                    placeholder="Jelaskan secara singkat kebutuhan Anda..." required></textarea>
+                            </div>
+                            <button type="button" onclick="sendToWA()" class="btn btn-neon w-100">
+                                <i class="fab fa-whatsapp me-2"></i> Kirim Pesan Sekarang
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                        class="img-fluid rounded mb-3 w-100" alt="Detail">
-                    <h3 class="text-navy">Gedung Perkantoran Melvin</h3>
-                    <p class="text-muted">Pembangunan gedung perkantoran 10 lantai dengan konsep Green Building.</p>
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><strong><i class="fas fa-user me-2"></i>Klien:</strong> Melvin Group Tbk.</li>
-                                <li><strong><i class="fas fa-map-marker-alt me-2"></i>Lokasi:</strong> Sudirman, Jakarta
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><strong><i class="fas fa-calendar-alt me-2"></i>Tahun:</strong> 2021 - 2023</li>
-                                <li><strong><i class="fas fa-tag me-2"></i>Layanan:</strong> Konstruksi Utama</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer border-0">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                        class="img-fluid rounded mb-3 w-100" alt="Detail">
-                    <h3 class="text-navy">Suplai Proyek Ganja Nusantara</h3>
-                    <p class="text-muted">Distribusi material konstruksi skala besar untuk percepatan pembangunan
-                        infrastruktur.</p>
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><strong><i class="fas fa-user me-2"></i>Klien:</strong> PT. Adhi Karya (Persero)
-                                </li>
-                                <li><strong><i class="fas fa-box me-2"></i>Item:</strong> Baja Tulangan & Semen</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><strong><i class="fas fa-calendar-alt me-2"></i>Tahun:</strong> 2022</li>
-                                <li><strong><i class="fas fa-weight-hanging me-2"></i>Volume:</strong> 500 Ton</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        class="img-fluid rounded mb-3 w-100" alt="Detail">
-                    <h3 class="text-navy">Renovasi Villa Cikarang</h3>
-                    <p class="text-muted">Layanan pembangunan gedung, rumah tinggal, hingga renovasi kantor dengan tim
-                        ahli bersertifikat.</p>
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><strong><i class="fas fa-user me-2"></i>Klien:</strong> PT. Adhi putra perkasa
-                                </li>
-                                <li><strong><i class="fas fa-box me-2"></i>Item:</strong> Baja Ringan & Semen</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><strong><i class="fas fa-calendar-alt me-2"></i>Tahun:</strong> 2023</li>
-                                <li><strong><i class="fas fa-weight-hanging me-2"></i>Volume:</strong> 500 Kg </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                        class="img-fluid rounded mb-3 w-100" alt="Detail">
-                    <h3 class="text-navy">Renovasi Villa Cikarang</h3>
-                    <p class="text-muted">Transformasi total interior dan eksterior villa mewah dengan gaya minimalis
-                        modern.</p>
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><strong><i class="fas fa-user me-2"></i>Klien:</strong> Pribadi</li>
-                                <li><strong><i class="fas fa-map-marker-alt me-2"></i>Lokasi:</strong> Cikarang, Bekasi
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><strong><i class="fas fa-calendar-alt me-2"></i>Tahun:</strong> 2023</li>
-                                <li><strong><i class="fas fa-hammer me-2"></i>Layanan:</strong> Renovasi & Interior</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="projectModal4" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1518709414768-a88981a4515d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                        class="img-fluid rounded mb-3 w-100" alt="Detail">
-                    <h3 class="text-navy">Suplai Pipa Migas Pertiwi</h3>
-                    <p class="text-muted">Pengadaan pipa besi khusus untuk infrastruktur distribusi minyak dan gas bumi.
-                    </p>
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><strong><i class="fas fa-user me-2"></i>Klien:</strong> Pertiwi Energy</li>
-                                <li><strong><i class="fas fa-box-open me-2"></i>Item:</strong> Pipa Carbon Steel</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><strong><i class="fas fa-calendar-alt me-2"></i>Tahun:</strong> 2022</li>
-                                <li><strong><i class="fas fa-truck me-2"></i>Kategori:</strong> Distributor</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="projectModal5" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                        class="img-fluid rounded mb-3 w-100" alt="Detail">
-                    <h3 class="text-navy">Cluster Green Harmony</h3>
-                    <p class="text-muted">Pembangunan kawasan perumahan elit sebanyak 50 unit dengan fasilitas taman
-                        terpadu.</p>
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><strong><i class="fas fa-user me-2"></i>Klien:</strong> Harmony Land Dev</li>
-                                <li><strong><i class="fas fa-map-marker-alt me-2"></i>Lokasi:</strong> Bekasi Kota</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><strong><i class="fas fa-calendar-alt me-2"></i>Tahun:</strong> 2020 - 2022</li>
-                                <li><strong><i class="fas fa-home me-2"></i>Layanan:</strong> Land Clearing & Build</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="projectModal6" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-                        class="img-fluid rounded mb-3 w-100" alt="Detail">
-                    <h3 class="text-navy">Pengadaan Alat Berat Tol Japek</h3>
-                    <p class="text-muted">Penyediaan unit excavator dan crane untuk mendukung proyek jalan tol
-                        Jakarta-Cikampek.</p>
-
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><strong><i class="fas fa-user me-2"></i>Klien:</strong> Waskita Karya</li>
-                                <li><strong><i class="fas fa-tractor me-2"></i>Unit:</strong> 10 Unit Excavator</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li><strong><i class="fas fa-calendar-alt me-2"></i>Tahun:</strong> 2023</li>
-                                <li><strong><i class="fas fa-tools me-2"></i>Layanan:</strong> Sewa & Suplai</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="modal-footer border-0">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div> 
-
-    <footer>
+    <footer class="py-5 border-top border-white border-opacity-10">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5 class="fw-bold">PT. HIKMA LANGGENG ABADI</h5>
-                    <p class="small">Membangun kepercayaan melalui kualitas dan integritas. Partner terbaik Anda dalam
-                        distribusi dan konstruksi.</p>
-                    <div class="social-icons mt-3">
-                        <a href="https://www.tiktok.com/@hikmalanggengabadi" class="me-3"><i
-                                class="fab fa-tiktok fa-lg"></i></a>
-                        <a href="https://www.instagram.com/hikma_langgengstore/" class="me-3"><i
-                                class="fab fa-instagram fa-lg"></i></a>
-                        <a href="https://www.linkedin.com/company/pt-hikma-langgeng-abadi/" class="me-3"><i
-                                class="fab fa-linkedin fa-lg"></i></a>
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <h5 class="fw-bold mb-1">PT. HIKMA<span class="text-info">LANGGENG</span><span
+                            style="color: var(--danger-red);">ABADI</span></h5>
+                    <p class="small text-white-50 mb-0">© 2025 PT. Hikma Langgeng Abadi. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-4 mt-md-0">
+                    <div class="social-links">
+                        <a href="https://www.tiktok.com/@hikmalanggengabadi" target="_blank" class="btn btn-sm btn-outline-secondary rounded-circle mx-1"><i 
+                                class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/hikma_langgengstore" target="_blank" class="btn btn-sm btn-outline-secondary rounded-circle mx-1"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/pt-hikma-langgeng-abadi/" target="_blank" class="btn btn-sm btn-outline-secondary rounded-circle mx-1"><i
+                                class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5>Tautan Cepat</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#about">Tentang Kami</a></li>
-                        <li><a href="#services">Layanan</a></li>
-                        <li><a href="#portfolio">Portofolio</a></li>
-                        <li><a href="#contact">Karir</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5>E-Commerce</h5>
-                    <p class="small">Beli material kami secara online:</p>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="https://www.tokopedia.com/hikma-langgeng-abadi-store" target="_blank"
-                                style="text-decoration: none; display: inline-flex; align-items: center; color: #42b549; font-weight: bold;">
-                                <b
-                                    style="display: inline-block; width: 22px; height: 22px; background: url('data:image/svg+xml;utf8,<svg viewBox=&quot;0 0 48 48&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;><path d=&quot;M38.5 10H9.5C6.46243 10 4 12.4624 4 15.5V32.5C4 35.5376 6.46243 38 9.5 38H38.5C41.5376 38 44 35.5376 44 32.5V15.5C44 12.4624 41.5376 10 38.5 10Z&quot; fill=&quot;%2342B549&quot;/><path d=&quot;M19 21C19 18.2386 21.2386 16 24 16C26.7614 16 29 18.2386 29 21V22C29 24.7614 26.7614 27 24 27C21.2386 27 19 24.7614 19 22V21Z&quot; fill=&quot;white&quot;/></svg>') no-repeat center center; background-size: contain; margin-right: 8px;"></b>
-                                Tokopedia Official Store
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="bg-secondary">
-            <div class="text-center small">
-                &copy; 2025 PT. Hikma Langgeng Abadi. All Rights Reserved.
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-
     <script>
-        // Inisialisasi Animate On Scroll (AOS)
-        AOS.init({
-            once: true, // Animasi hanya terjadi sekali saat scroll
-            offset: 100, // Trigger animasi 100px sebelum elemen terlihat
-            duration: 800, // Durasi animasi
-        });
+        AOS.init({ duration: 1000, once: true });
 
-        // Inisialisasi Vanilla Tilt untuk efek 3D pada kartu layanan
-        VanillaTilt.init(document.querySelectorAll(".service-card"), {
-            max: 25, // Maksimum kemiringan
-            speed: 400, // Kecepatan efek
-            glare: true, // Efek kilau
-            "max-glare": 0.5,
-        });
+        window.onscroll = function () {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        };
 
-        // Fungsi Filter Portofolio
-        function filterPortfolio(category) {
-            // Ubah tombol aktif
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.innerText.toLowerCase().includes(category) || (category === 'all' && btn.innerText === 'Semua')) {
-                    btn.classList.add('active');
-                }
-            });
+        function sendToWA() {
+            const name = document.getElementById('name').value;
+            const company = document.getElementById('company').value;
+            const msg = document.getElementById('message').value;
+            if (!name || !msg) { alert("Harap isi nama dan pesan Anda."); return; }
 
-            // Filter item galeri
-            const items = document.querySelectorAll('.portfolio-item-wrapper');
-            items.forEach(item => {
-                if (category === 'all') {
-                    item.style.display = 'block';
-                    // Re-trigger animasi AOS saat filter berubah (opsional, sederhana di sini)
-                } else {
-                    if (item.classList.contains(category)) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                }
-            });
+            const phone = "6281234567890";
+            const text = `Halo PT. Hikma Langgeng Abadi,%0ASaya *${name}* dari *${company}*%0AIngin bertanya mengenai: %0A${msg}`;
+            window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${text}`, '_blank');
         }
 
-        // Navbar berubah warna saat di-scroll
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow');
-                navbar.style.padding = '10px 0';
-            } else {
-                navbar.classList.remove('shadow');
-                navbar.style.padding = '15px 0';
-            }
+        // Menutup menu navbar otomatis setelah klik di mobile
+        const navLinks = document.querySelectorAll('.nav-link');
+        const menuToggle = document.getElementById('navbarNav');
+        const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
+
+        navLinks.forEach((l) => {
+            l.addEventListener('click', () => {
+                if (window.innerWidth < 992) { bsCollapse.hide(); }
+            });
         });
-    </script>
-
-    <script>
-        function kirimKeWA(e) {
-            e.preventDefault(); // Mencegah reload halaman
-
-            // Ambil data dari formulir
-            var nama = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-            var pesan = document.getElementById('message').value;
-
-            // Ganti nomor ini dengan nomor WhatsApp Admin PT. Hikma (format 62...)
-            var nomorWA = "6282155013726";
-
-            // Buat format pesan
-            var text = `Halo Admin PT. Hikma Langgeng Abadi,%0A%0ASaya ingin bertanya/konsultasi.%0A%0ANama: ${nama}%0AEmail: ${email}%0APesan: ${pesan}`;
-
-            // Buka link WhatsApp
-            window.open(`https://wa.me/${nomorWA}?text=${text}`, '_blank');
-        }
     </script>
 </body>
 
