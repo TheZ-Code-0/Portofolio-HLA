@@ -331,6 +331,32 @@
                 height: 180px;
             }
         }
+
+        /* Perbaikan agar kotak input terlihat kontras */
+        .form-control-glass {
+            background: rgba(255, 255, 255, 0.05) !important;
+            /* Latar belakang lebih terang sedikit */
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            /* Border lebih nyata */
+            color: #ffffff !important;
+            /* Teks putih bersih */
+            border-radius: 12px;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control-glass:focus {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: var(--primary) !important;
+            /* Warna biru cyan saat diklik */
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+            outline: none;
+        }
+
+        /* Mengatur warna tulisan petunjuk (placeholder) agar tidak terlalu gelap */
+        .form-control-glass::placeholder {
+            color: rgba(255, 255, 255, 0.4) !important;
+        }
     </style>
 </head>
 
@@ -394,7 +420,7 @@
                         <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800"
                             class="img-fluid rounded-4 mb-4" alt="Construction">
                         <div class="d-flex justify-content-around">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -485,7 +511,7 @@
     <section id="gallery" class="py-5">
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
-                <h6 class="text-info text-uppercase fw-bold tracking-widest">Our Products & Projects</h6>
+                <h6 class="text-info text-uppercase fw-bold tracking-widest">Our Products</h6>
                 <h2 class="display-5 fw-bold">Portfolio Produk</h2>
                 <div class="mx-auto mt-3"
                     style="width:80px; height:4px; background:var(--primary); border-radius:10px;"></div>
@@ -512,7 +538,7 @@
                             <div class="p-4 w-100">
                                 <span class="badge bg-info mb-2">Wood Substitute</span>
                                 <h5 class="fw-bold text-white">SHERA PLANK</h5>
-                                <p class="small text-white-50">Material dekoratif fiber semen motif kayu alami.</p>
+                                <p class="small text-white-50">Material fiber semen motif kayu alami.</p>
                             </div>
                         </div>
                     </div>
@@ -525,7 +551,7 @@
                             <div class="p-4 w-100">
                                 <span class="badge bg-info mb-2">Roofing System</span>
                                 <h5 class="fw-bold text-white">MATTAKA</h5>
-                                <p class="small text-white-50">Sistem atap modern dengan daya tahan ekstrem.</p>
+                                <p class="small text-white-50">Sistem atap modern daya tahan ekstrem.</p>
                             </div>
                         </div>
                     </div>
@@ -538,7 +564,7 @@
                             <div class="p-4 w-100">
                                 <span class="badge bg-info mb-2">Air Ventilation</span>
                                 <h5 class="fw-bold text-white">TURBINKU</h5>
-                                <p class="small text-white-50">Turbin ventilator otomatis untuk sirkulasi industri.</p>
+                                <p class="small text-white-50">Turbin ventilator otomatis sirkulasi industri.</p>
                             </div>
                         </div>
                     </div>
@@ -556,23 +582,79 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
+                    <div class="glass-card position-relative">
+                        <img src="assets/img/container.jpg" class="portfolio-img" loading="lazy"
+                            alt="Folding Container">
+                        <div class="portfolio-overlay">
+                            <div class="p-4 w-100">
+                                <span class="badge bg-info mb-2">Modular Building</span>
+                                <h5 class="fw-bold text-white">FOLDING CONTAINER</h5>
+                                <p class="small text-white-50">Solusi ruang praktis, cepat, dan bisa dilipat.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <section id="contact" class="py-5">
             <div class="container py-5">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h6 class="text-info text-uppercase fw-bold">Contact Us</h6>
+                    <h2 class="display-5 fw-bold">Get In Touch</h2>
+                </div>
+
                 <div class="row g-4">
-                    <div class="col-lg-6" data-aos="fade-right">
-                        <div class="map-container shadow-2xl">
+                    <div class="col-lg-4" data-aos="fade-right">
+                        <div class="glass-card p-4 h-100">
+                            <div class="mb-4">
+                                <h5 class="text-info fw-bold"><i class="fas fa-building me-2"></i>Head Office :</h5>
+                                <p class="small text-white-50">
+                                    <strong>PT. Hikma Langgeng Abadi</strong><br>
+                                    Jl. Taman Harapan Baru No.4b, RT.002/RW.023, Pejuang, Kecamatan Medan Satria, Kota
+                                    Bks, Jawa Barat 17125<br>
+                                    <i class="fas fa-phone-alt me-2"></i> +62 821-5501-3726<br>
+                                    <i class="fas fa-envelope me-2"></i> hikmalanggengabadi@gmail.com
+                                </p>
+                            </div>
+
+                            <div class="mb-4">
+                                <h5 class="text-info fw-bold"><i class="fas fa-map-marker-alt me-2"></i>Branch Office :
+                                </h5>
+                                <p class="small text-white-50">
+                                    <strong>PT. Hikma Langgeng Abadi (Serang)</strong><br>
+                                    Jl. Ayip Usman, Kebaharan, Dukuh, Kec. Serang, Kota Serang, Banten 42111<br>
+                                    <i class="fas fa-phone-alt me-2"></i> +62 896-1224-6088<br>
+                                    <i class="fas fa-clock me-2"></i> Senin - Jumat: 08:00 - 17:00
+                                </p>
+                            </div>
+
+                            <hr class="border-secondary">
+
+                            <div class="mt-4">
+                                <h5 class="text-white fw-bold mb-3">Whatsapp Us</h5>
+                                <a href="https://api.whatsapp.com/send?phone=6282155013726" target="_blank"
+                                    class="btn btn-success w-100 rounded-pill">
+                                    <i class="fab fa-whatsapp me-2"></i> Customer Service
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" data-aos="fade-up">
+                        <div class="map-container shadow h-100">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6499524196615!2d106.9986773!3d-6.177591299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698b0017266bcb%3A0x5055147a77918249!2sPT.%20Hikma%20Langgeng%20Abadi%20(Distributor%20Sika%2C%20Shera%2C%20Aplus%20dan%20Turbinku)!5e0!3m2!1sen!2sid!4v1769139597794!5m2!1sen!2sid"
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7933.299909335428!2d106.99867700000001!3d-6.177591!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698b0017266bcb%3A0x5055147a77918249!2sPT.%20Hikma%20Langgeng%20Abadi%20(Distributor%20Sika%2C%20Shera%2C%20Aplus%20dan%20Turbinku)!5e0!3m2!1sen!2sid!4v1769665780288!5m2!1sen!2sid"
                                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
-                    <div class="col-lg-6" data-aos="fade-left">
-                        <div class="glass-card p-5">
-                            <h3 class="fw-bold mb-4">Hubungi Kami</h3>
+
+                    <div class="col-lg-4" data-aos="fade-left">
+                        <div class="glass-card p-4 h-100">
+                            <h5 class="text-white fw-bold mb-3">Konsultasi Proyek</h5>
                             <form id="consultForm">
                                 <div class="mb-3">
                                     <label class="small text-white-50 mb-2">Nama Lengkap</label>
@@ -589,9 +671,8 @@
                                     <textarea id="message" class="form-control form-control-glass" rows="4"
                                         placeholder="Jelaskan secara singkat kebutuhan Anda..." required></textarea>
                                 </div>
-                                <button type="button" onclick="sendToWA()" class="btn btn-neon w-100">
-                                    <i class="fab fa-whatsapp me-2"></i> Kirim Pesan Sekarang
-                                </button>
+                                <button type="button" onclick="sendToWA()" class="btn btn-neon w-100">Kirim
+                                    Pesan</button>
                             </form>
                         </div>
                     </div>
