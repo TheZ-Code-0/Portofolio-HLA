@@ -307,6 +307,30 @@
                 /* Tinggi disesuaikan untuk layar HP */
             }
         }
+
+        /* --- FAQ STYLE --- */
+        .accordion-item {
+            background: var(--glass-bg) !important;
+            border: 1px solid var(--glass-border) !important;
+            border-radius: 15px !important;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            background: transparent !important;
+            color: white !important;
+            font-weight: 600;
+            box-shadow: none !important;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: var(--primary) !important;
+        }
+
+        .accordion-body {
+            color: rgba(255, 255, 255, 0.7);
+        }
     </style>
 </head>
 
@@ -563,6 +587,51 @@
                             <div class="w-100">
                                 <span class="badge bg-info mb-2">Modular Building</span>
                                 <h5 class="fw-bold text-white">FOLDING CONTAINER</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-info text-uppercase fw-bold">FAQ</h6>
+                <h2 class="display-5 fw-bold text-white">Pertanyaan Umum</h2>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#q1">
+                                    Apakah PT HLA melayani pengiriman ke luar kota?
+                                </button>
+                            </h2>
+                            <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Ya, kami melayani pengiriman material ke seluruh wilayah Indonesia melalui mitra
+                                    logistik terpercaya kami.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#q2">
+                                    Apakah pengerjaan konstruksi memiliki garansi?
+                                </button>
+                            </h2>
+                            <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Tentu. Sebagai aplikator bersertifikat (seperti SIKA), setiap pengerjaan kami
+                                    mengikuti standar teknis pabrikan dan dilengkapi dengan jaminan kualitas hasil
+                                    kerja.
+                                </div>
                             </div>
                         </div>
                     </div>
