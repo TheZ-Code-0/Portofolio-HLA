@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="PT. Hikma Langgeng Abadi - Solusi konstruksi sipil, aplikator bersertifikat SIKA, dan distributor material industri premium.">
-    <title>PT. Hikma Langgeng Abadi | Modern Construction & Distribution</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="PT. Hikma Langgeng Abadi">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
@@ -40,7 +39,7 @@
             background-size: 50px 50px;
         }
 
-        /* --- TOKOPEDIA BUTTON (DI LUAR MEDIA QUERY AGAR MUNCUL DI DESKTOP & MOBILE) --- */
+        /* --- TOKOPEDIA BUTTON --- */
         .btn-tokped {
             background: #42b549 !important;
             color: white !important;
@@ -60,6 +59,7 @@
             background: #38a040 !important;
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(66, 181, 73, 0.5);
+            color: white !important;
         }
 
         /* --- BACKGROUND & NAVIGATION --- */
@@ -101,9 +101,24 @@
             letter-spacing: -0.5px;
         }
 
-        .navbar-brand:hover img {
-            transform: rotate(5deg) scale(1.1);
-            /* Efek animasi kecil saat kursor di atas logo */
+        /* --- PERBAIKAN GAMBAR (PENTING) --- */
+        .img-fix {
+            width: 100%;
+            object-fit: cover;
+            /* Mencegah foto gepeng */
+            object-position: center;
+            display: block;
+        }
+
+        .img-about-size {
+            height: 450px !important;
+            /* Mengunci tinggi foto mitra agar tidak duplikat/gepeng */
+            border-radius: 18px;
+        }
+
+        .portfolio-img {
+            height: 250px !important;
+            /* Ukuran standar produk */
         }
 
         /* --- GLASS CARD & PORTFOLIO --- */
@@ -113,6 +128,10 @@
             border: 1px solid var(--glass-border);
             border-radius: 24px;
             transition: all 0.4s ease;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .glass-card:hover {
@@ -121,27 +140,16 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        .glass-card img {
-            transition: 0.5s;
-            object-fit: cover;
-            height: 350px;
-            width: 100%;
-        }
-
         .portfolio-overlay {
             position: absolute;
-            bottom: -100%;
+            bottom: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(3, 7, 18, 0.95), transparent);
+            background: linear-gradient(to top, rgba(3, 7, 18, 0.95) 40%, transparent 100%);
             display: flex;
             align-items: flex-end;
             transition: 0.5s ease-in-out;
-        }
-
-        .glass-card:hover .portfolio-overlay {
-            bottom: 0;
+            padding: 20px;
         }
 
         /* --- COMPONENTS --- */
@@ -158,6 +166,7 @@
             background: linear-gradient(to bottom right, #fff 50%, var(--primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            line-height: 1.1;
         }
 
         .btn-neon {
@@ -168,6 +177,12 @@
             border-radius: 12px;
             padding: 15px 30px;
             text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-neon:hover {
+            box-shadow: 0 0 20px var(--primary);
+            color: var(--dark-bg);
         }
 
         .btn-float-wa {
@@ -184,181 +199,113 @@
             justify-content: center;
             font-size: 30px;
             z-index: 1000;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .map-container {
             border-radius: 24px;
             overflow: hidden;
             height: 100%;
-            min-height: 400px;
+            min-height: 500px;
+            /* Diperbesar agar seimbang dengan kolom kontak */
             border: 1px solid var(--glass-border);
         }
 
-        /* ============================================================
-       --- SEMUA OPTIMASI MOBILE ---
-       ============================================================ */
-        @media (max-width: 768px) {
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+        }
 
-            /* Membuat Hero Title lebih menyesuaikan layar HP */
+        /* --- OPTIMASI MOBILE --- */
+        @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.2rem !important;
-                line-height: 1.2;
             }
 
-            /* Memastikan gambar hero mengisi ruang dengan pas */
-            .hero-section .glass-card {
-                padding: 15px !important;
-                margin-top: 20px;
+            .img-about-size {
+                height: 300px !important;
             }
 
-            .hero-section .glass-card img {
-                height: auto !important;
-                /* Agar gambar tidak lonjong/gepeng */
-                max-height: 250px;
-            }
-
-            /* Memperbaiki tombol katalog agar tidak berantakan di HP */
-            .gap-3 {
-                gap: 0.5rem !important;
-            }
-
-            .btn-neon,
-            .btn-outline-info {
-                font-size: 0.8rem !important;
-                padding: 10px 15px !important;
-                width: 100%;
-                /* Tombol katalog jadi full-width di HP agar mudah diklik */
-            }
-        }
-
-        /* Tombol Tokped Full Width di HP */
-
-        .glass-card img {
-            height: 180px !important;
-        }
-
-        .portfolio-overlay {
-            bottom: 0 !important;
-            background: linear-gradient(to top, rgba(3, 7, 18, 0.95) 40%, transparent 100%) !important;
-        }
-
-        .portfolio-overlay h5 {
-            font-size: 0.85rem !important;
-        }
-
-        .portfolio-overlay p.small {
-            font-size: 0.65rem !important;
-            -webkit-line-clamp: 2;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .map-container {
-            min-height: 250px !important;
-            height: 250px !important;
-        }
-
-        footer {
-            padding-bottom: 100px !important;
-            text-align: center;
-        }
-
-        .btn-float-wa {
-            width: 50px;
-            height: 50px;
-            bottom: 20px;
-            right: 20px;
-            font-size: 24px;
-        }
-        
-
-        #about {
-            scroll-margin-top: 100px;
-        }
-
-        /* Menghilangkan sisa-sisa navigasi slider atau elemen yang tidak diinginkan */
-        .carousel-control-prev,
-        .carousel-control-next,
-        .nav-link::before {
-            display: none !important;
-        }
-
-        #gallery .glass-card img {
-            width: 100%;
-            height: 250px;
-            /* Tinggi standar di Laptop */
-            object-fit: cover;
-            /* Memotong gambar otomatis agar tidak gepeng */
-            object-position: center;
-            display: block;
-        }
-
-        #gallery .glass-card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        #gallery .glass-card a {
-            display: block;
-            cursor: zoom-in;
-        }
-
-        /* 1. Mengunci ukuran gambar agar seragam (Crop Otomatis) */
-        .portfolio-img {
-            width: 100%;
-            height: 250px;
-            /* Tinggi permanen di Desktop */
-            object-fit: cover;
-            object-position: center;
-            display: block;
-        }
-
-        /* 2. Memastikan kartu tetap sejajar meski jumlah kata berbeda */
-        .glass-card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            /* Memaksa kartu setinggi kolomnya */
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            overflow: hidden;
-        }
-
-        /* 3. Penyesuaian tinggi gambar khusus untuk Mobile agar tidak terlalu besar */
-        @media (max-width: 768px) {
             .portfolio-img {
-                height: 180px;
+                height: 180px !important;
+            }
+
+            .map-container {
+                min-height: 350px !important;
+            }
+
+            .btn-group-hero {
+                justify-content: center;
+            }
+
+            footer {
+                padding-bottom: 80px;
             }
         }
 
-        /* Perbaikan agar kotak input terlihat kontras */
         .form-control-glass {
             background: rgba(255, 255, 255, 0.05) !important;
-            /* Latar belakang lebih terang sedikit */
             border: 1px solid rgba(255, 255, 255, 0.2) !important;
-            /* Border lebih nyata */
             color: #ffffff !important;
-            /* Teks putih bersih */
             border-radius: 12px;
             padding: 12px 15px;
-            transition: all 0.3s ease;
         }
 
-        .form-control-glass:focus {
-            background: rgba(255, 255, 255, 0.1) !important;
-            border-color: var(--primary) !important;
-            /* Warna biru cyan saat diklik */
-            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
-            outline: none;
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(0, 242, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: var(--primary);
+            margin-bottom: 20px;
         }
 
-        /* Mengatur warna tulisan petunjuk (placeholder) agar tidak terlalu gelap */
-        .form-control-glass::placeholder {
-            color: rgba(255, 255, 255, 0.4) !important;
+        /* --- OPTIMASI SCROLL FOTO (ABOUT SECTION) --- */
+        .about-image-wrapper {
+            display: flex;
+            overflow-x: auto;
+            /* Efek magnet: otomatis berhenti tepat di tengah foto */
+            scroll-snap-type: x mandatory;
+            /* Hilangkan celah antar foto agar tidak ada yang mengintip di pinggir */
+            gap: 0;
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE/Edge */
+            border-radius: 18px;
+            cursor: grab;
+        }
+
+        .about-image-wrapper::-webkit-scrollbar {
+            display: none;
+            /* Chrome/Safari */
+        }
+
+        .about-image-item {
+            /* Memaksa foto berukuran tepat 100% dari lebar container */
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+        }
+
+        .about-image-item img {
+            width: 100%;
+            height: 450px;
+            /* Tinggi default desktop */
+            object-fit: cover;
+            display: block;
+            border-radius: 18px;
+        }
+
+        /* Responsif Mobile */
+        @media (max-width: 768px) {
+            .about-image-item img {
+                height: 300px;
+                /* Tinggi disesuaikan untuk layar HP */
+            }
         }
     </style>
 </head>
@@ -410,20 +357,17 @@
                         industri premium dengan keahlian konstruksi sipil. Solusi satu pintu untuk infrastruktur yang
                         lebih kuat, lebih cepat, dan lebih efisien.</p>
                     <div class="d-flex flex-wrap gap-3 btn-group-hero">
-                        <a href="https://www.tokopedia.com/hikma-langgeng-abadi-store" target="_blank" class="btn-tokped">
+                        <a href="https://www.tokopedia.com/hikma-langgeng-abadi-store" target="_blank"
+                            class="btn-tokped">
                             <i class="fas fa-store"></i> Tokopedia Shop
                         </a>
-                        <a href="#contact" class="btn btn-outline-light btn-lg px-4 rounded-3">
-                            Konsultasi Teknis
-                        </a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg px-4 rounded-3">Konsultasi Teknis</a>
                     </div>
                 </div>
                 <div class="col-lg-5" data-aos="zoom-in">
                     <div class="glass-card p-4 text-center">
-                        <img src="assets/img/perusahaan.png" class="img-fluid rounded-4 mb-4" alt="Construction">
-                        <div class="d-flex justify-content-around">
-
-                        </div>
+                        <img src="assets/img/perusahaan.png" class="img-fluid rounded-4 img-fix" style="height: 300px;"
+                            alt="Construction">
                     </div>
                 </div>
             </div>
@@ -437,7 +381,7 @@
                     <h6 class="text-info text-uppercase fw-bold">Tentang Kami</h6>
                     <h2 class="display-5 fw-bold mb-4">Mitra Strategis Infrastruktur Anda</h2>
                     <p class="text-white-50">PT. Hikma Langgeng Abadi hadir sebagai solusi terintegrasi antara
-                        distribusi material berkualitas tinggi dan jasa konstruksi profesional. kami fokus pada
+                        distribusi material berkualitas tinggi dan jasa konstruksi profesional. Kami fokus pada
                         ketahanan dan efisiensi setiap proyek sipil maupun industri.</p>
                     <div class="row g-3 mt-2">
                         <div class="col-6">
@@ -458,11 +402,27 @@
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <div class="glass-card p-2">
-                        <img src="assets/img/perusahaan-crew.png" class="img-fluid rounded-4" style="height: 400px;"
-                            alt="Workplace">
+                        <div class="about-image-wrapper">
+                            <div class="about-image-item">
+                                <img src="assets/img/perusahaan-crew.png" alt="Tim PT HLA">
+                            </div>
+                            <div class="about-image-item">
+                                <img src="assets/img/perusahaan-crew.png" alt="Aktivitas Proyek">
+                            </div>
+                            <div class="about-image-item">
+                                <img src="assets/img/perusahaan-crew.png" alt="Kantor Cabang">
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <small class="text-info opacity-75">
+                                <i class="fas fa-arrows-left-right me-2"></i>Geser untuk melihat foto lainnya
+                            </small>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -496,13 +456,11 @@
                             kirim untuk kebutuhan proyek besar maupun retail.</p>
                         <ul class="list-unstyled mt-4 text-white-50">
                             <li><i class="fas fa-check-circle text-info me-2"></i> Stok Utama SIKA, SHERA, APLUS &
-                                MATTAKA
-                            </li>
+                                MATTAKA</li>
                             <li><i class="fas fa-check-circle text-info me-2"></i> Sistem Ventilasi Industri (TURBINKU)
                             </li>
                             <li><i class="fas fa-check-circle text-info me-2"></i> Konsultasi Produk & Efisiensi
                                 Material</li>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -519,264 +477,232 @@
                     style="width:80px; height:4px; background:var(--primary); border-radius:10px;"></div>
             </div>
 
+            <div class="row mb-5" data-aos="fade-up">
+                <div class="col-12 text-center">
+                    <div class="glass-card d-inline-block p-4 border-info border-opacity-25">
+                        <p class="mb-3 text-white-50">Butuh spesifikasi teknis lengkap untuk proyek Anda?</p>
+                        <div class="d-flex flex-wrap justify-content-center gap-3">
+                            <a href="assets/pdf/compro-hla.pdf" target="_blank"
+                                class="btn btn-neon rounded-pill px-4"><i class="fas fa-download me-2"></i>SIKA</a>
+                            <a href="assets/pdf/compro-hla.pdf" target="_blank"
+                                class="btn btn-neon rounded-pill px-4"><i class="fas fa-download me-2"></i>SHERA</a>
+                            <a href="assets/pdf/compro-hla.pdf" target="_blank"
+                                class="btn btn-neon rounded-pill px-4"><i class="fas fa-download me-2"></i>MATTAKA</a>
+                            <a href="assets/pdf/compro-hla.pdf" target="_blank"
+                                class="btn btn-neon rounded-pill px-4"><i class="fas fa-download me-2"></i>TURBINKU</a>
+                            <a href="assets/pdf/compro-hla.pdf" target="_blank"
+                                class="btn btn-neon rounded-pill px-4"><i class="fas fa-download me-2"></i>APLUS</a>
+                            <a href="assets/pdf/folding-container-lipat.pdf" target="_blank"
+                                class="btn btn-neon rounded-pill px-4"><i class="fas fa-download me-2"></i>FOLDING
+                                CONTAINER</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row g-4">
-                <div class="row mt-5" data-aos="fade-up">
-                    <div class="col-12 text-center">
-                        <div class="glass-card d-inline-block p-4 border-info border-opacity-25">
-                            <p class="mb-3 text-white-50">Butuh spesifikasi teknis lengkap untuk proyek Anda?</p>
-                            <div class="d-flex flex-wrap justify-content-center gap-3">
-                                <a href="assets/pdf/compro-hla.pdf" target="_blank"
-                                    class="btn btn-neon rounded-pill px-4">
-                                    <i class="fas fa-download me-2"></i>Unduh Katalog SIKA
-                                </a>
-                                <a href="assets/pdf/compro-hla.pdf" target="_blank"
-                                    class="btn btn-neon rounded-pill px-4">
-                                    <i class="fas fa-download me-2"></i>Unduh Katalog SHERA
-                                </a>
-                                <a href="assets/pdf/compro-hla.pdf" target="_blank"
-                                    class="btn btn-neon rounded-pill px-4">
-                                    <i class="fas fa-download me-2"></i>Unduh Katalog MATTAKA
-                                </a>
-                                <a href="assets/pdf/compro-hla.pdf" target="_blank"
-                                    class="btn btn-neon rounded-pill px-4">
-                                    <i class="fas fa-download me-2"></i>Unduh Katalog TURBINKU
-                                    <a href="assets/pdf/compro-hla.pdf" target="_blank"
-                                        class="btn btn-neon rounded-pill px-4">
-                                        <i class="fas fa-download me-2"></i>Unduh Katalog APLUS
-                                    </a>
-                                    <a href="assets/pdf/folding-container-lipat.pdf" target="_blank"
-                                        class="btn btn-neon rounded-pill px-4">
-                                        <i class="fas fa-download me-2"></i>Unduh Katalog FOLDING CONTAINER
-                                    </a>
-                                    <a href="https://api.whatsapp.com/send?phone=6282155013726&text=Halo%20PT%20HIKMALA,%20saya%20ingin%20minta%20pricelist%20terbaru"
-                                        class="btn btn-neon rounded-pill px-4">
-                                        <i class="fas fa-tags me-2"></i>Minta List Harga Terbaru
-                                    </a>
+                <div class="col-6 col-lg-3" data-aos="fade-up">
+                    <div class="glass-card position-relative">
+                        <img src="assets/img/sika.webp" class="img-fix portfolio-img" alt="Sika">
+                        <div class="portfolio-overlay">
+                            <div class="w-100">
+                                <span class="badge bg-info mb-2">Chemical Construction</span>
+                                <h5 class="fw-bold text-white">SIKA</h5>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="glass-card position-relative">
-                        <img src="assets/img/sika.webp" class="portfolio-img" loading="lazy" alt="Sika">
+                        <img src="assets/img/shera.jpg" class="img-fix portfolio-img" alt="Shera">
                         <div class="portfolio-overlay">
-                            <div class="p-4 w-100">
-                                <span class="badge bg-info mb-2">Chemical Construction</span>
-                                <h5 class="fw-bold text-white">SIKA</h5>
-                                <p class="small text-white-50">Solusi perekat & waterproofing kualitas dunia.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                    <div class="glass-card position-relative">
-                        <img src="assets/img/shera.jpg" class="portfolio-img" loading="lazy" alt="Shera">
-                        <div class="portfolio-overlay">
-                            <div class="p-4 w-100">
+                            <div class="w-100">
                                 <span class="badge bg-info mb-2">Wood Substitute</span>
                                 <h5 class="fw-bold text-white">SHERA PLANK</h5>
-                                <p class="small text-white-50">Material fiber semen motif kayu alami.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="glass-card position-relative">
-                        <img src="assets/img/mattaka.jpeg" class="portfolio-img" loading="lazy" alt="Mattaka">
+                        <img src="assets/img/mattaka.jpeg" class="img-fix portfolio-img" alt="Mattaka">
                         <div class="portfolio-overlay">
-                            <div class="p-4 w-100">
+                            <div class="w-100">
                                 <span class="badge bg-info mb-2">Roofing System</span>
                                 <h5 class="fw-bold text-white">MATTAKA</h5>
-                                <p class="small text-white-50">Sistem atap modern daya tahan ekstrem.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
                     <div class="glass-card position-relative">
-                        <img src="assets/img/turbinku.jpg" class="portfolio-img" loading="lazy" alt="Turbinku">
+                        <img src="assets/img/turbinku.jpg" class="img-fix portfolio-img" alt="Turbinku">
                         <div class="portfolio-overlay">
-                            <div class="p-4 w-100">
+                            <div class="w-100">
                                 <span class="badge bg-info mb-2">Air Ventilation</span>
                                 <h5 class="fw-bold text-white">TURBINKU</h5>
-                                <p class="small text-white-50">Turbin ventilator otomatis sirkulasi industri.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
                     <div class="glass-card position-relative">
-                        <img src="assets/img/aplus.jpg" class="portfolio-img" loading="lazy" alt="Aplus">
+                        <img src="assets/img/aplus.jpg" class="img-fix portfolio-img" alt="Aplus">
                         <div class="portfolio-overlay">
-                            <div class="p-4 w-100">
+                            <div class="w-100">
                                 <span class="badge bg-info mb-2">Building Materials</span>
                                 <h5 class="fw-bold text-white">APLUS</h5>
-                                <p class="small text-white-50">Solusi material konstruksi berkualitas tinggi.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
                     <div class="glass-card position-relative">
-                        <img src="assets/img/container.jpg" class="portfolio-img" loading="lazy"
-                            alt="Folding Container">
+                        <img src="assets/img/container.jpg" class="img-fix portfolio-img" alt="Folding Container">
                         <div class="portfolio-overlay">
-                            <div class="p-4 w-100">
+                            <div class="w-100">
                                 <span class="badge bg-info mb-2">Modular Building</span>
                                 <h5 class="fw-bold text-white">FOLDING CONTAINER</h5>
-                                <p class="small text-white-50">Solusi ruang praktis, cepat, dan bisa dilipat.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <section id="contact" class="py-5">
-            <div class="container py-5">
-                <div class="text-center mb-5" data-aos="fade-up">
-                    <h6 class="text-info text-uppercase fw-bold">Contact Us</h6>
-                    <h2 class="display-5 fw-bold">Get In Touch</h2>
+    <section id="contact" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-info text-uppercase fw-bold">Contact Us</h6>
+                <h2 class="display-5 fw-bold">Get In Touch</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-right">
+                    <div class="glass-card p-4 h-100">
+                        <div class="mb-4">
+                            <h5 class="text-info fw-bold"><i class="fas fa-building me-2"></i>Head Office :</h5>
+                            <p class="small text-white-50">
+                                <strong>PT. Hikma Langgeng Abadi</strong><br>
+                                Jl. Taman Harapan Baru No.4b, RT.002/RW.023, Pejuang, Kecamatan Medan Satria, Kota
+                                Bks, Jawa Barat 17125<br>
+                                <i class="fas fa-phone-alt me-2"></i> +62 821-5501-3726<br>
+                                <i class="fas fa-envelope me-2"></i> hikmalanggengabadi@gmail.com
+                            </p>
+                        </div>
+
+                        <div class="mb-4">
+                            <h5 class="text-info fw-bold"><i class="fas fa-map-marker-alt me-2"></i>Branch Office :
+                            </h5>
+                            <p class="small text-white-50">
+                                <strong>PT. Hikma Langgeng Abadi (Serang)</strong><br>
+                                Jl. Ayip Usman, Kebaharan, Dukuh, Kec. Serang, Kota Serang, Banten 42111<br>
+                                <i class="fas fa-phone-alt me-2"></i> +62 896-1224-6088<br>
+                                <i class="fas fa-clock me-2"></i> Senin - Jumat: 08:00 - 17:00
+                            </p>
+                        </div>
+
+                        <hr class="border-secondary">
+
+                        <div class="mt-4">
+                            <h5 class="text-white fw-bold mb-3">Whatsapp Us</h5>
+                            <a href="https://api.whatsapp.com/send?phone=6282155013726" target="_blank"
+                                class="btn btn-success w-100 rounded-pill">
+                                <i class="fab fa-whatsapp me-2"></i> Customer Service
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="row g-4">
-                    <div class="col-lg-4" data-aos="fade-right">
-                        <div class="glass-card p-4 h-100">
-                            <div class="mb-4">
-                                <h5 class="text-info fw-bold"><i class="fas fa-building me-2"></i>Head Office :</h5>
-                                <p class="small text-white-50">
-                                    <strong>PT. Hikma Langgeng Abadi</strong><br>
-                                    Jl. Taman Harapan Baru No.4b, RT.002/RW.023, Pejuang, Kecamatan Medan Satria, Kota
-                                    Bks, Jawa Barat 17125<br>
-                                    <i class="fas fa-phone-alt me-2"></i> +62 821-5501-3726<br>
-                                    <i class="fas fa-envelope me-2"></i> hikmalanggengabadi@gmail.com
-                                </p>
-                            </div>
-
-                            <div class="mb-4">
-                                <h5 class="text-info fw-bold"><i class="fas fa-map-marker-alt me-2"></i>Branch Office :
-                                </h5>
-                                <p class="small text-white-50">
-                                    <strong>PT. Hikma Langgeng Abadi (Serang)</strong><br>
-                                    Jl. Ayip Usman, Kebaharan, Dukuh, Kec. Serang, Kota Serang, Banten 42111<br>
-                                    <i class="fas fa-phone-alt me-2"></i> +62 896-1224-6088<br>
-                                    <i class="fas fa-clock me-2"></i> Senin - Jumat: 08:00 - 17:00
-                                </p>
-                            </div>
-
-                            <hr class="border-secondary">
-
-                            <div class="mt-4">
-                                <h5 class="text-white fw-bold mb-3">Whatsapp Us</h5>
-                                <a href="https://api.whatsapp.com/send?phone=6282155013726" target="_blank"
-                                    class="btn btn-success w-100 rounded-pill">
-                                    <i class="fab fa-whatsapp me-2"></i> Customer Service
-                                </a>
-                            </div>
-                        </div>
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="map-container shadow">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6499524196615!2d106.9986773!3d-6.177591299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698b0017266bcb%3A0x5055147a77918249!2sPT.%20Hikma%20Langgeng%20Abadi%20(Distributor%20Sika%2C%20Shera%2C%20Aplus%20dan%20Turbinku)!5e0!3m2!1sen!2sid!4v1770094143766!5m2!1sen!2sid"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
+                </div>
 
-                    <div class="col-lg-4" data-aos="fade-up">
-                        <div class="map-container shadow h-100">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7933.299909335428!2d106.99867700000001!3d-6.177591!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698b0017266bcb%3A0x5055147a77918249!2sPT.%20Hikma%20Langgeng%20Abadi%20(Distributor%20Sika%2C%20Shera%2C%20Aplus%20dan%20Turbinku)!5e0!3m2!1sen!2sid!4v1769665780288!5m2!1sen!2sid"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4" data-aos="fade-left">
-                        <div class="glass-card p-4 h-100">
-                            <h5 class="text-white fw-bold mb-3">Konsultasi Proyek</h5>
-                            <form id="consultForm">
-                                <div class="mb-3">
-                                    <label class="small text-white-50 mb-2">Nama Lengkap</label>
-                                    <input type="text" id="name" class="form-control form-control-glass"
-                                        placeholder="Contoh: Budi Santoso" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="small text-white-50 mb-2">Perusahaan/Instansi</label>
-                                    <input type="text" id="company" class="form-control form-control-glass"
-                                        placeholder="Nama PT atau CV">
-                                </div>
-                                <div class="mb-4">
-                                    <label class="small text-white-50 mb-2">Kebutuhan Proyek</label>
-                                    <textarea id="message" class="form-control form-control-glass" rows="4"
-                                        placeholder="Jelaskan secara singkat kebutuhan Anda..." required></textarea>
-                                </div>
-                                <button type="button" onclick="sendToWA()" class="btn btn-neon w-100">Kirim
-                                    Pesan</button>
-                            </form>
-                        </div>
+                <div class="col-lg-4" data-aos="fade-left">
+                    <div class="glass-card p-4">
+                        <h5 class="text-white fw-bold mb-3">Konsultasi Proyek</h5>
+                        <form id="consultForm">
+                            <div class="mb-3">
+                                <input type="text" id="name" class="form-control form-control-glass"
+                                    placeholder="Nama Lengkap" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" id="company" class="form-control form-control-glass"
+                                    placeholder="Perusahaan">
+                            </div>
+                            <div class="mb-4">
+                                <textarea id="message" class="form-control form-control-glass" rows="4"
+                                    placeholder="Kebutuhan Anda..." required></textarea>
+                            </div>
+                            <button type="button" onclick="sendToWA()" class="btn btn-neon w-100">Kirim Pesan</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer class="py-5 border-top border-white border-opacity-10">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6 text-center text-md-start">
-                        <h5 class="fw-bold mb-1">PT. HIKMA<span class="text-info">LANGGENG</span><span
-                                style="color: var(--danger-red);">ABADI</span></h5>
-                        <p class="small text-white-50 mb-0">© 2025 PT. Hikma Langgeng Abadi. All Rights Reserved.</p>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end mt-4 mt-md-0">
-                        <div class="social-links">
-                            <a href="https://www.tiktok.com/@hikmalanggengabadi" target="_blank"
-                                class="btn btn-sm btn-outline-secondary rounded-circle mx-1"><i
-                                    class="fab fa-tiktok"></i></a>
-                            <a href="https://www.instagram.com/hikma_langgengstore" target="_blank"
-                                class="btn btn-sm btn-outline-secondary rounded-circle mx-1"><i
-                                    class="fab fa-instagram"></i></a>
-                            <a href="https://www.linkedin.com/company/pt-hikma-langgeng-abadi/" target="_blank"
-                                class="btn btn-sm btn-outline-secondary rounded-circle mx-1"><i
-                                    class="fab fa-linkedin"></i></a>
-                        </div>
+    <footer class="py-5 border-top border-white border-opacity-10">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <h5 class="fw-bold mb-1">PT. HIKMA<span class="text-info">LANGGENG</span><span
+                            style="color: var(--danger-red);">ABADI</span></h5>
+                    <p class="small text-white-50 mb-0">© 2025 PT. Hikma Langgeng Abadi. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-4 mt-md-0">
+                    <div class="social-links">
+                        <a href="https://www.tiktok.com/@hikmalanggengabadi" target="_blank"
+                            class="btn btn-sm btn-outline-secondary rounded-circle mx-1"><i
+                                class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/hikma_langgengstore" target="_blank"
+                            class="btn btn-sm btn-outline-secondary rounded-circle mx-1"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/pt-hikma-langgeng-abadi/" target="_blank"
+                            class="btn btn-sm btn-outline-secondary rounded-circle mx-1"><i
+                                class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
-            AOS.init({ duration: 1000, once: true });
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
 
-            window.onscroll = function () {
-                const nav = document.getElementById('mainNav');
-                if (window.scrollY > 50) nav.classList.add('scrolled');
-                else nav.classList.remove('scrolled');
-            };
+        window.onscroll = function () {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        };
 
-            function sendToWA() {
-                const name = document.getElementById('name').value;
-                const company = document.getElementById('company').value;
-                const msg = document.getElementById('message').value;
-                if (!name || !msg) { alert("Harap isi nama dan pesan Anda."); return; }
+        function sendToWA() {
+            const name = document.getElementById('name').value;
+            const company = document.getElementById('company').value;
+            const msg = document.getElementById('message').value;
+            if (!name || !msg) { alert("Harap isi nama dan pesan Anda."); return; }
+            const phone = "6282155013726";
+            const text = `Halo PT. Hikma Langgeng Abadi,%0ASaya *${name}* dari *${company}*%0AIngin bertanya mengenai: %0A${msg}`;
+            window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${text}`, '_blank');
+        }
 
-                const phone = "6282155013726";
-                const text = `Halo PT. Hikma Langgeng Abadi,%0ASaya *${name}* dari *${company}*%0AIngin bertanya mengenai: %0A${msg}`;
-                window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${text}`, '_blank');
-            }
-
-            // Menutup menu navbar otomatis setelah klik di mobile
-            const navLinks = document.querySelectorAll('.nav-link');
-            const menuToggle = document.getElementById('navbarNav');
-            const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
-
-            navLinks.forEach((l) => {
-                l.addEventListener('click', () => {
-                    if (window.innerWidth < 992) { bsCollapse.hide(); }
-                });
+        const navLinks = document.querySelectorAll('.nav-link');
+        const menuToggle = document.getElementById('navbarNav');
+        const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
+        navLinks.forEach((l) => {
+            l.addEventListener('click', () => {
+                if (window.innerWidth < 992) { bsCollapse.hide(); }
             });
-        </script>
+        });
+    </script>
 </body>
-
 
 </html>
