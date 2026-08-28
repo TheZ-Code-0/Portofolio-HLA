@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="PT. Hikma Langgeng Abadi - Solusi konstruksi sipil, aplikator bersertifikat SIKA, dan distributor material industri premium.">
+        content="PT. Hikma Langgeng Abadi - Solusi konstruksi sipil, aplikator bersertifikat SIKA, dan distributor material industri premium: SIKA, SHERA, APLUS, MATTAKA, TURBINKU, folding container Hikma Fold, dan Toilet Cubicle System.">
     <meta name="author" content="PT. Hikma Langgeng Abadi">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -119,6 +119,141 @@
         .portfolio-img {
             height: 250px !important;
             /* Ukuran standar produk */
+        }
+
+        /* --- KARTU PRODUK (Product Cards) --- */
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .product-thumb {
+            position: relative;
+            height: 210px;
+            background: linear-gradient(160deg, #ffffff 0%, #eef2f7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .product-thumb img {
+            width: 100%;
+            height: 100%;
+            /* contain = foto produk / packshot tidak terpotong */
+            object-fit: contain;
+            padding: 14px;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        /* Tambahkan class "fit-cover" pada <img> untuk foto suasana/proyek
+           (foto lanskap yang bagus kalau memenuhi frame) */
+        .product-thumb img.fit-cover {
+            object-fit: cover;
+            padding: 0;
+        }
+
+        .glass-card:hover .product-thumb img {
+            transform: scale(1.05);
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(3, 7, 18, 0.85);
+            color: var(--primary);
+            border: 1px solid rgba(0, 242, 255, 0.35);
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            backdrop-filter: blur(6px);
+        }
+
+        .product-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-body h5 {
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .product-body p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            flex-grow: 1;
+        }
+
+        .product-specs {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 18px 0;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        .product-specs li {
+            margin-bottom: 4px;
+        }
+
+        .product-specs i {
+            color: var(--primary);
+            margin-right: 8px;
+        }
+
+        .btn-product {
+            border: 1px solid rgba(0, 242, 255, 0.35);
+            color: var(--primary);
+            background: rgba(0, 242, 255, 0.06);
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 10px 16px;
+            transition: 0.3s;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        .btn-product:hover {
+            background: var(--primary);
+            color: var(--dark-bg);
+        }
+
+        .btn-product-pdf {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.8);
+            background: transparent;
+        }
+
+        .btn-product-pdf:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .product-thumb {
+                height: 150px;
+            }
+
+            .product-body {
+                padding: 14px;
+            }
+
+            .product-body p {
+                font-size: 0.8rem;
+            }
         }
 
         /* --- GLASS CARD & PORTFOLIO --- */
@@ -359,6 +494,7 @@
                     <li class="nav-item"><a class="nav-link px-3" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#about">Company</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#products">Products</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#gallery">Portfolio</a></li>
                     <li class="nav-item ms-lg-4"><a class="btn btn-outline-info rounded-pill px-4"
                             href="#contact">Contact Us</a></li>
@@ -447,7 +583,6 @@
                 </div>
             </div>
         </div>
-        </div>
     </section>
 
     <section id="services" class="py-5">
@@ -492,10 +627,232 @@
         </div>
     </section>
 
-    <section id="gallery" class="py-5">
+    <!-- ==========================================================================
+         SECTION PRODUK (KARTU PER PRODUK)
+         --------------------------------------------------------------------------
+         CARA GANTI FOTO PRODUK (tidak perlu ubah kode sama sekali):
+         1. Siapkan foto baru, ubah namanya persis seperti daftar di bawah ini.
+         2. Upload / replace ke folder: assets/img/produk/
+                sika.jpg
+                shera.jpg
+                aplus.jpg
+                mattaka.jpg
+                turbinku.jpg
+                hikma-fold.jpg
+                toilet-cubicle.jpg
+         3. Selesai. Kartu otomatis pakai foto yang baru.
+         Saran ukuran: 1000 x 750 px (rasio 4:3), maksimal 300 KB per foto.
+
+         CARA MENAMBAH TOMBOL DOWNLOAD KATALOG per produk (kalau PDF sudah siap):
+         - Taruh PDF di folder assets/pdf/katalog/ (contoh: katalog-sika.pdf)
+         - Copy 2 baris <a> "Download Katalog" dari kartu HIKMA FOLD di bawah,
+           lalu tempel di kartu produk yang dimaksud & ganti nama file PDF-nya.
+         ========================================================================== -->
+    <section id="products" class="py-5">
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
                 <h6 class="text-info text-uppercase fw-bold tracking-widest">Our Products</h6>
+                <h2 class="display-5 fw-bold">Produk & Brand Kami</h2>
+                <div class="mx-auto mt-3"
+                    style="width:80px; height:4px; background:var(--primary); border-radius:10px;"></div>
+                <p class="text-white-50 mt-3 mx-auto" style="max-width:720px;">Distributor resmi dan aplikator
+                    bersertifikat untuk material konstruksi premium. Setiap produk tersedia untuk kebutuhan proyek
+                    skala besar maupun retail.</p>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- ============ SIKA ============ -->
+                <div class="col-6 col-lg-4" data-aos="fade-up">
+                    <div class="glass-card product-card">
+                        <div class="product-thumb">
+                            <span class="product-tag">Waterproofing</span>
+                            <img src="assets/img/produk/sika.jpg" alt="Produk SIKA - PT Hikma Langgeng Abadi"
+                                loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h5>SIKA</h5>
+                            <p>Construction chemicals untuk waterproofing, epoxy flooring, grouting, dan perbaikan
+                                beton. Kami aplikator bersertifikat SIKA.</p>
+                            <ul class="product-specs">
+                                <li><i class="fas fa-check"></i>Waterproofing atap & basement</li>
+                                <li><i class="fas fa-check"></i>Epoxy lantai pabrik & gudang</li>
+                                <li><i class="fas fa-check"></i>Tersedia jasa aplikasi</li>
+                            </ul>
+                            <a href="https://api.whatsapp.com/send?phone=6285781913227&text=Halo%20PT.%20Hikma%20Langgeng%20Abadi%2C%20saya%20ingin%20menanyakan%20produk%20*SIKA*%20(harga%20%26%20katalog)."
+                                target="_blank" class="btn-product mb-2">
+                                <i class="fab fa-whatsapp me-2"></i>Tanya Harga & Katalog
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ SHERA ============ -->
+                <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card product-card">
+                        <div class="product-thumb">
+                            <span class="product-tag">Fiber Cement</span>
+                            <img src="assets/img/produk/shera.jpg" alt="Produk SHERA - PT Hikma Langgeng Abadi"
+                                loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h5>SHERA</h5>
+                            <p>Papan fiber semen untuk facade, plafon, lantai, dan panel dekoratif. Tahan air, rayap,
+                                dan cuaca ekstrem.</p>
+                            <ul class="product-specs">
+                                <li><i class="fas fa-check"></i>Facade & wall cladding</li>
+                                <li><i class="fas fa-check"></i>Plafon & lantai</li>
+                                <li><i class="fas fa-check"></i>Motif kayu dekoratif</li>
+                            </ul>
+                            <a href="https://api.whatsapp.com/send?phone=6285781913227&text=Halo%20PT.%20Hikma%20Langgeng%20Abadi%2C%20saya%20ingin%20menanyakan%20produk%20*SHERA*%20(harga%20%26%20katalog)."
+                                target="_blank" class="btn-product mb-2">
+                                <i class="fab fa-whatsapp me-2"></i>Tanya Harga & Katalog
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ APLUS ============ -->
+                <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card product-card">
+                        <div class="product-thumb">
+                            <span class="product-tag">Mortar</span>
+                            <img src="assets/img/produk/aplus.jpg" alt="Produk APLUS - PT Hikma Langgeng Abadi"
+                                loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h5>APLUS</h5>
+                            <p>Semen instan dan perekat untuk kebutuhan finishing: cornice adhesive, plester, acian,
+                                hingga perekat bata ringan.</p>
+                            <ul class="product-specs">
+                                <li><i class="fas fa-check"></i>Cornice adhesive 3 in 1</li>
+                                <li><i class="fas fa-check"></i>Plester & acian instan</li>
+                                <li><i class="fas fa-check"></i>Kemasan 20 kg &amp; 40 kg</li>
+                            </ul>
+                            <a href="https://api.whatsapp.com/send?phone=6285781913227&text=Halo%20PT.%20Hikma%20Langgeng%20Abadi%2C%20saya%20ingin%20menanyakan%20produk%20*APLUS*%20(harga%20%26%20katalog)."
+                                target="_blank" class="btn-product mb-2">
+                                <i class="fab fa-whatsapp me-2"></i>Tanya Harga & Katalog
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ MATTAKA ============ -->
+                <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card product-card">
+                        <div class="product-thumb">
+                            <span class="product-tag">Atap uPVC</span>
+                            <img src="assets/img/produk/mattaka.jpg" alt="Produk MATTAKA - PT Hikma Langgeng Abadi"
+                                loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h5>MATTAKA</h5>
+                            <p>Atap uPVC multi-layer dengan rongga udara. Meredam panas dan suara, anti karat, dan
+                                tidak korosif terhadap bahan kimia.</p>
+                            <ul class="product-specs">
+                                <li><i class="fas fa-check"></i>Peredam panas &amp; suara</li>
+                                <li><i class="fas fa-check"></i>Anti karat &amp; anti bocor</li>
+                                <li><i class="fas fa-check"></i>Gudang, pabrik, kanopi</li>
+                            </ul>
+                            <a href="https://api.whatsapp.com/send?phone=6285781913227&text=Halo%20PT.%20Hikma%20Langgeng%20Abadi%2C%20saya%20ingin%20menanyakan%20produk%20*MATTAKA*%20(harga%20%26%20katalog)."
+                                target="_blank" class="btn-product mb-2">
+                                <i class="fab fa-whatsapp me-2"></i>Tanya Harga & Katalog
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ TURBINKU ============ -->
+                <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="glass-card product-card">
+                        <div class="product-thumb">
+                            <span class="product-tag">Ventilasi</span>
+                            <img src="assets/img/produk/turbinku.jpg" class="fit-cover"
+                                alt="Turbin Ventilator TURBINKU - PT Hikma Langgeng Abadi" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h5>TURBINKU</h5>
+                            <p>Turbin ventilator untuk sirkulasi udara pabrik dan gudang. Tanpa listrik, menurunkan
+                                suhu ruang secara signifikan.</p>
+                            <ul class="product-specs">
+                                <li><i class="fas fa-check"></i>Stainless steel &amp; aluminium</li>
+                                <li><i class="fas fa-check"></i>Tersedia jasa pemasangan</li>
+                                <li><i class="fas fa-check"></i>Berpengalaman proyek industri</li>
+                            </ul>
+                            <a href="https://api.whatsapp.com/send?phone=6285781913227&text=Halo%20PT.%20Hikma%20Langgeng%20Abadi%2C%20saya%20ingin%20menanyakan%20produk%20*TURBINKU*%20(harga%20%26%20katalog)."
+                                target="_blank" class="btn-product mb-2">
+                                <i class="fab fa-whatsapp me-2"></i>Tanya Harga & Katalog
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ HIKMA FOLD (FOLDING CONTAINER) ============ -->
+                <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="glass-card product-card">
+                        <div class="product-thumb">
+                            <span class="product-tag">Modular</span>
+                            <img src="assets/img/produk/hikma-fold.jpg"
+                                alt="Folding Container Hikma Fold - PT Hikma Langgeng Abadi" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h5>HIKMA FOLD</h5>
+                            <p>Folding container (container lipat) buatan kami sendiri. Solusi ruang modular untuk
+                                kantor proyek, mess karyawan, hingga hunian sementara.</p>
+                            <ul class="product-specs">
+                                <li><i class="fas fa-check"></i>Bongkar pasang cepat</li>
+                                <li><i class="fas fa-check"></i>Hemat biaya pengiriman</li>
+                                <li><i class="fas fa-check"></i>Custom ukuran &amp; layout</li>
+                            </ul>
+                            <a href="https://api.whatsapp.com/send?phone=6285781913227&text=Halo%20PT.%20Hikma%20Langgeng%20Abadi%2C%20saya%20ingin%20menanyakan%20produk%20*HIKMA%20FOLD%20(Folding%20Container)*."
+                                target="_blank" class="btn-product mb-2">
+                                <i class="fab fa-whatsapp me-2"></i>Tanya Harga & Katalog
+                            </a>
+                            <!-- CONTOH TOMBOL DOWNLOAD KATALOG (copy 3 baris di bawah ke produk lain
+                                 kalau PDF-nya sudah siap, lalu ganti nama file & judulnya) -->
+                            <a href="assets/pdf/folding-container-lipat.pdf" target="_blank"
+                                class="btn-product btn-product-pdf">
+                                <i class="fas fa-file-pdf me-2"></i>Download Katalog
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ TOILET CUBICLE (PRODUK BARU) ============ -->
+                <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="glass-card product-card">
+                        <div class="product-thumb">
+                            <span class="product-tag">Baru</span>
+                            <!-- Kalau file assets/img/produk/toilet-cubicle.jpg belum diupload,
+                                 otomatis pakai foto sementara (stock gratis) dari onerror di bawah. -->
+                            <img src="assets/img/produk/toilet-cubicle.jpg" class="fit-cover"
+                                onerror="this.onerror=null;this.src='https://images.pexels.com/photos/8082550/pexels-photo-8082550.jpeg?auto=compress&cs=tinysrgb&w=800';"
+                                alt="Toilet Cubicle System - PT Hikma Langgeng Abadi" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <h5>TOILET CUBICLE SYSTEM</h5>
+                            <p>Partisi toilet untuk gedung perkantoran, mall, sekolah, dan fasilitas publik. Tersedia
+                                lima tipe material sesuai kebutuhan dan budget proyek.</p>
+                            <ul class="product-specs">
+                                <li><i class="fas fa-check"></i>Aluminium, stainless 304, nylon</li>
+                                <li><i class="fas fa-check"></i>Panel compact laminate / phenolic</li>
+                                <li><i class="fas fa-check"></i>Survey &amp; pemasangan</li>
+                            </ul>
+                            <a href="#gallery" class="btn-product mb-2">
+                                <i class="fas fa-layer-group me-2"></i>Lihat 5 Tipe Cubicle
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-info text-uppercase fw-bold tracking-widest">Detail Produk</h6>
                 <h2 class="display-5 fw-bold">Toilet Cubicle System</h2>
                 <div class="mx-auto mt-3"
                     style="width:80px; height:4px; background:var(--primary); border-radius:10px;"></div>
@@ -520,14 +877,22 @@
                 </div>
             </div>
 
-            <!-- CATATAN: gambar di bawah pakai foto stock GRATIS berlisensi bebas (Pexels License - bebas
-                 dipakai komersial, tanpa atribusi wajib) sebagai foto INTERIM/sementara, bukan foto proyek HLA
-                 yang sebenarnya. Ganti src masing-masing dengan foto produk/proyek asli toilet cubicle HLA
-                 begitu tersedia (taruh file fotonya di folder assets/img/cubicle/). -->
+            <!-- CARA GANTI FOTO 5 TIPE CUBICLE DI BAWAH INI:
+                 Upload foto asli ke folder assets/img/produk/cubicle/ dengan nama persis:
+                     aluminium.jpg
+                     stainless-304.jpg
+                     compact-laminate.jpg
+                     nylon.jpg
+                     stainless-heavy-duty.jpg
+                     proyek-referensi.jpg
+                 Selama file tersebut BELUM ada, kartu otomatis menampilkan foto stock gratis
+                 (Pexels License - bebas dipakai komersial) sebagai foto sementara.
+                 Begitu file asli diupload, foto stock hilang dengan sendirinya. -->
             <div class="row g-4">
                 <div class="col-6 col-lg-4" data-aos="fade-up">
                     <div class="glass-card position-relative">
-                        <img src="https://images.pexels.com/photos/8082550/pexels-photo-8082550.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        <img src="assets/img/produk/cubicle/aluminium.jpg"
+                            onerror="this.onerror=null;this.src='https://images.pexels.com/photos/8082550/pexels-photo-8082550.jpeg?auto=compress&cs=tinysrgb&w=800';"
                             class="img-fix portfolio-img" alt="Toilet Cubicle Sistem Aluminium">
                         <div class="portfolio-overlay">
                             <div class="w-100">
@@ -541,7 +906,8 @@
                 </div>
                 <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="glass-card position-relative">
-                        <img src="https://images.pexels.com/photos/29318090/pexels-photo-29318090.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        <img src="assets/img/produk/cubicle/stainless-304.jpg"
+                            onerror="this.onerror=null;this.src='https://images.pexels.com/photos/29318090/pexels-photo-29318090.jpeg?auto=compress&cs=tinysrgb&w=800';"
                             class="img-fix portfolio-img" alt="Toilet Cubicle Stainless Steel 304">
                         <div class="portfolio-overlay">
                             <div class="w-100">
@@ -555,7 +921,8 @@
                 </div>
                 <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="glass-card position-relative">
-                        <img src="https://images.pexels.com/photos/13181569/pexels-photo-13181569.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        <img src="assets/img/produk/cubicle/compact-laminate.jpg"
+                            onerror="this.onerror=null;this.src='https://images.pexels.com/photos/13181569/pexels-photo-13181569.jpeg?auto=compress&cs=tinysrgb&w=800';"
                             class="img-fix portfolio-img" alt="Toilet Cubicle Compact Laminate">
                         <div class="portfolio-overlay">
                             <div class="w-100">
@@ -569,7 +936,8 @@
                 </div>
                 <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="glass-card position-relative">
-                        <img src="https://images.pexels.com/photos/24971993/pexels-photo-24971993.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        <img src="assets/img/produk/cubicle/nylon.jpg"
+                            onerror="this.onerror=null;this.src='https://images.pexels.com/photos/24971993/pexels-photo-24971993.jpeg?auto=compress&cs=tinysrgb&w=800';"
                             class="img-fix portfolio-img" alt="Toilet Cubicle Sistem Nylon">
                         <div class="portfolio-overlay">
                             <div class="w-100">
@@ -583,7 +951,8 @@
                 </div>
                 <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
                     <div class="glass-card position-relative">
-                        <img src="https://images.pexels.com/photos/29255834/pexels-photo-29255834.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        <img src="assets/img/produk/cubicle/stainless-heavy-duty.jpg"
+                            onerror="this.onerror=null;this.src='https://images.pexels.com/photos/29255834/pexels-photo-29255834.jpeg?auto=compress&cs=tinysrgb&w=800';"
                             class="img-fix portfolio-img" alt="Toilet Cubicle Heavy Duty Stainless Steel">
                         <div class="portfolio-overlay">
                             <div class="w-100">
@@ -597,7 +966,8 @@
                 </div>
                 <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
                     <div class="glass-card position-relative">
-                        <img src="https://images.pexels.com/photos/34964683/pexels-photo-34964683.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        <img src="assets/img/produk/cubicle/proyek-referensi.jpg"
+                            onerror="this.onerror=null;this.src='https://images.pexels.com/photos/34964683/pexels-photo-34964683.jpeg?auto=compress&cs=tinysrgb&w=800';"
                             class="img-fix portfolio-img" alt="Proyek Toilet Cubicle HLA">
                         <div class="portfolio-overlay">
                             <div class="w-100">
